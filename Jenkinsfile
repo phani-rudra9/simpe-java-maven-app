@@ -28,11 +28,12 @@ pipeline {
       }
     }
     
-//     stage('Deploy to tomcat') {
-//       steps {
+    stage('Deploy to tomcat') {
+      steps {
 //         sh 'sudo scp -i $tomcat_key -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@18.191.57.72:/opt/tomcat/webapps'
-//       }
-//     }
+           sh 'ansible-playbook deploy-new.yml'
+      }
+    }
 //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
@@ -54,11 +55,11 @@ pipeline {
 //       }   
 //     }  
 }
-post {
-     always {
-       emailext to: 'nammimahesh01@gmail.com',
-       attachLog: true, body: "Dear team pipeline is ${currentBuild.result} please check ${BUILD_URL} or PFA build log", compressLog: false,
-       subject: "Jenkins Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
-    }
-}
+// post {
+//      always {
+//        emailext to: 'nammimahesh01@gmail.com',
+//        attachLog: true, body: "Dear team pipeline is ${currentBuild.result} please check ${BUILD_URL} or PFA build log", compressLog: false,
+//        subject: "Jenkins Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
+//     }
+// }
 }
