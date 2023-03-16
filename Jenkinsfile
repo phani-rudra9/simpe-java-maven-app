@@ -24,16 +24,16 @@ pipeline {
     }
     stage('Push Artifact to S3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://demo-test198'
+        sh 'aws s3 cp webapp/target/webapp.war s3://demo-863939'
       }
     }
     
-    stage('Deploy to tomcat') {
-      steps {
-//         sh 'sudo scp -i $tomcat_key -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@18.191.57.72:/opt/tomcat/webapps'
-           sh 'sudo ansible-playbook deploy-new.yml'
-      }
-    }
+//     stage('Deploy to tomcat') {
+//       steps {
+// //         sh 'sudo scp -i $tomcat_key -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@18.191.57.72:/opt/tomcat/webapps'
+//            sh 'sudo ansible-playbook deploy-new.yml'
+//       }
+//     }
 //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
