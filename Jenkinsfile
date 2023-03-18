@@ -28,14 +28,14 @@ pipeline {
       }
     }
     
-    stage('Deploy to tomcat') {
-      steps {
-          sshagent(credentials : ['demo-server']){
-           sh 'sudo scp -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@13.127.0.50:/home/ubuntu/'
-//            sh 'sudo ansible-playbook deploy-new.yml'
-      }
-    }
-    }
+//     stage('Deploy to tomcat') {
+//       steps {
+//           sshagent(credentials : ['demo-server']){
+//            sh 'sudo scp -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@14.56.78.5:/home/ubuntu/'
+// //            sh 'sudo ansible-playbook deploy-new.yml'
+//       }
+//     }
+//     }
 //     stage('building docker image from docker file by tagging') {
 //       steps {
 //         sh 'docker build -t phanirudra9/phani9-devops:$BUILD_NUMBER .'
