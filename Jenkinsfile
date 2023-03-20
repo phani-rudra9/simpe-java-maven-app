@@ -30,10 +30,8 @@ pipeline {
     
     stage('Deploy to tomcat') {
       steps {
-          sshagent(credentials : ['tomcat-server']){
-           sh 'sudo scp -o UserKnownHostsFile=/dev/null -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@65.0.3.198:/home/ubuntu/'
+           sh 'sudo scp -i demo.pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@65.0.3.198:/home/ubuntu/'
 //            sh 'sudo ansible-playbook deploy-new.yml'
-      }
     }
     }
 //     stage('building docker image from docker file by tagging') {
