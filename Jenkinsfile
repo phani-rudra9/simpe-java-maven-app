@@ -31,7 +31,7 @@ pipeline {
     stage('Deploy to tomcat') {
       steps {
           sshagent(credentials : ['tomcat-server']){
-           sh 'sudo scp -o UserKnownHostsFile=/dev/null -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@15.206.82.1:/home/ubuntu/'
+           sh 'sudo scp -o UserKnownHostsFile=/dev/null -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@52.66.200.212:/home/ubuntu/'
 //            sh 'sudo ansible-playbook deploy-new.yml'
       }
     }
