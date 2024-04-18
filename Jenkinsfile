@@ -23,7 +23,7 @@ pipeline {
     //     sh 'scp -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@18.117.135.132:/opt/tomcat/webapps'
     //     }
     //   }
-    }
+    // }
     // stage('Deploy to tomcat') {
     //   steps {
     //        sh 'sudo scp -i demo.pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@65.0.3.198:/opt/tomcat/webapps'
