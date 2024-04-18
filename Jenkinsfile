@@ -17,13 +17,13 @@ pipeline {
         sh 'aws s3 cp webapp/target/webapp.war s3://demophanis3us'
       }
     }
-    // stage('Deploy to tomcat') {
-    //   steps {
-    //     sshagent(['tomcat-server-details']) {
-    //     sh 'scp -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@18.117.135.132:/opt/tomcat/webapps'
-    //     }
-    //   }
-    // }
+    stage('Deploy to tomcat') {
+      steps {
+        sshagent(['tomcat-server-details']) {
+        sh 'scp -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@54.219.35.228:/opt/tomcat/webapps'
+        }
+      }
+    }
     // stage('Deploy to tomcat') {
     //   steps {
     //        sh 'sudo scp -i demo.pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@65.0.3.198:/opt/tomcat/webapps'
