@@ -1,0 +1,10 @@
+- hosts: tomcat
+  become: true
+  tasks:
+    - name: update the packages
+      apt:
+       name: "*"
+       state: latest
+
+    - name: pull the artifact from S3
+      shell: aws s3 cp s3://demophanis3us/webapp.war /opt/tomcat/webapps
